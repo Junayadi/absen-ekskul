@@ -17,6 +17,7 @@ class CreateAbsensTable extends Migration
             $table->id();
             $table->char('kodeEkskul');
             $table->char('nis');
+            $table->date('tglAbsen');
             $table->char('presensi');
             $table->text('fotoTimestamp');
             $table->timestamps();

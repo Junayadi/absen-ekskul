@@ -18,4 +18,8 @@ class AnggotaEksl extends Model
     {
         return $this->belongsTo(Ekskul::class);
     }
+    public function absen()
+    {
+        return $this->hasMany(Absen::class);
+    }
 }

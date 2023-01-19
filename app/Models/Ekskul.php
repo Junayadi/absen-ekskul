@@ -18,4 +18,9 @@ class Ekskul extends Model
     {
         return $this->hasMany(AnggotaEksl::class);
     }
+
+    public function absen()
+    {
+        return $this->hasMany(Absen::class);
+    }
 }

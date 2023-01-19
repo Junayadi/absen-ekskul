@@ -28,7 +28,7 @@
                 <a class="nav-link" aria-current="page" href="angt">Daftar Anggota Ekskul</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Daftar Presensi</a>
+                <a class="nav-link" aria-current="page" href="absn">Daftar Presensi</a>
               </li>
               <li class="nav-item">
               <a class="nav-link" aria-current="page" href="/">Logout</a>
