@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\AnggotaEksl;
 use App\Models\Ekskul;
 use Faker\Calculator\Ean;
 use Illuminate\Http\Request;
@@ -10,6 +10,7 @@ class EkskulControllers extends Controller
 {
     public function index()
     {
+        $angt = AnggotaEksl::all();
         $eksl = Ekskul::latest()->paginate(5);
         return view('eksl.index',compact('eksl'))->with('i',(request()->input('page',1)-1)*5);
     }

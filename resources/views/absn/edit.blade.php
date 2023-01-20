@@ -75,10 +75,6 @@
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
     <br>
-    <div class="mb-3">
-        <label for="fotoTimestamp" class="form-label">Post Timestamp</label>
-        <input class="form-control" type="file" id="fotoTimestamp" name="fotoTimestamp" accept="image/*">
-      </div>
 </div>
 <div class=" mb-3 mt-3">
     <button type="submit" class="btn btn-primary">Update</button>

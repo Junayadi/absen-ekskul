@@ -14,7 +14,7 @@ class AbsenControllers extends Controller
         $angt = AnggotaEksl::all();
         $eksl = Ekskul::all();
         $absn = Absen::with('anggota', 'ekskul')->latest()->paginate(5);
-        return view('absn.index',compact('absn', 'eksl','angt'))->with('i',(request()->input('page',1)-1)*5);
+        return view('absn.index',compact('absn', 'eksl','angt'))->with('i',(request()->input('page',1)-1)*10);
     }
 
     public function create()
@@ -31,17 +31,8 @@ class AbsenControllers extends Controller
             'nis'=>'required',
             'tglAbsen'=>'required',
             'presensi'=>'required',
-            'fotoTimestamp'=>'mimes:jpg,png,jpeg|image',
         ]);
-        $file_name = $request->fotoTimestamp->getClientOriginalName();
-        $fotoTimestamp = $request->fotoTimestamp->storeAs('fotoTimestamp',$file_name);
-        Absen::create([
-            'kodeEkskul' => $request->kodeEkskul,
-            'nis' => $request->nis,
-            'tglAbsen' => $request->tglAbsen,
-            'presensi' => $request->presensi,
-            'fotoTimestamp' => $fotoTimestamp,
-        ]);
+        Absen::create($request->all());
         return redirect()->route('absn.index')->with('succes','Data create successfully');
     }
 
@@ -66,7 +57,6 @@ class AbsenControllers extends Controller
             'nis'=>'required',
             'tglAbsen'=>'required',
             'presensi'=>'required',
-            'fotoTimestamp'=>'required',
         ]);
         $absn->update($request->all());
         return redirect()->route('absn.index')->with('succes','Data updated successfully');
